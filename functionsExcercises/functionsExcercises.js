@@ -18,10 +18,10 @@ Principle :
 // the function will retrieve a random number from 1 - 36 as argumuments
 // where its declared. Math.random to generate a number, Math.floor to
 // round it down.
-// const randomNumber = function(min, max) {
-//     let nb = min + (max-min+1) * Math.random();
-//     return Math.floor(nb);
-// }
+const randomNumber = function (min, max) {
+  let nb = min + (max - min + 1) * Math.random();
+  return Math.floor(nb);
+};
 
 function casino() {
   // to be able to play the game, I need to declare that the game
@@ -30,6 +30,7 @@ function casino() {
   let isPlaying = true;
   let money = 1000; // starting money
   alert(`Welcome to the table, you have $${money}`);
+
   do {
     // here the user chooses their number
     let msg = `Please choose a number between 1 and 36`;
