@@ -2,42 +2,62 @@
 
 // 1. be able to choose a number
 let numberPick;
-let msg = `Enter a number between 1 and 999`
+let msg = `Enter a number between 1 and 999`;
 do {
-    numberPick = prompt(msg);
-    numberPick = parseInt(numberPick);
-    console.log(numberPick);
-    convertToLetters(numberPick);
-    msg = `Your choice is not valid, please choose a number between 1 and 999`;
+  numberPick = prompt(msg); // because its in a loop, it keeps on asking the quetsion until the conditions are met
+  numberPick = parseInt(numberPick); // changes the string, which is what we get back, into a number
+  console.log(numberPick);
+  convertToLetters(numberPick); // we initalize the function, then pass down it down teh argument to the function
+  msg = `Your choice is not valid, please choose a number between 1 and 999`;
 } while (numberPick > 999 || numberPick < 1 || isNaN(numberPick));
 
-// I need to pass down the function from above
+// I need to pass down the argument from above
 function convertToLetters(numberPick) {
+  // 3.
+  // I need numberPick % 1000, numberPick % 100, numberPick % 10
+  // each one will have a remainder which starts with a number
+  // I can use
+  var stringUnit = numberPick % 10; // 365 % 10 = 5 unitss
+  var stringTen = ((numberPick % 100) - stringUnit) / 10; // 365 % 100 = 65 tens - unit = 60/10=6
+  var stringHundred = (numberPick - (numberPick % 100)) / 100; // 365 % 1000 = 365 hundreds - tens = 305 - units = 300/100=3
 
-// 3. 
-// I need numberPick % 1000, numberPick % 100, numberPick % 10
-// each one will have a remainder which starts with a number
-// I can use  
-var stringUnit = numberPick % 10; // 365 % 10 = 5 unitss
-var stringTen = ((numberPick % 100) - stringUnit) / 10; // 365 % 100 = 65 tens - unit = 60/10=6
-var stringHundred = (numberPick - (numberPick % 100)) / 100 // 365 % 1000 = 365 hundreds - tens = 305 - units = 300/100=3
+  var stringUnits = [
+    "",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+  ];
+  var stringTens = [
+    "",
+    "",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+  ];
+  // var stringHundreds = ['one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred'];
 
-var stringUnits = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
-var stringTens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
-// var stringHundreds = ['one hundred', 'two hundred', 'three hundred', 'four hundred', 'five hundred', 'six hundred', 'seven hundred', 'eight hundred', 'nine hundred'];
+  unitOutput = stringUnits[stringUnit];
+  tensOutput = stringTens[stringTen];
+  //   hundredOutput = stringHundreds[stringHundred];
 
-unitOutput = stringUnits[stringUnit];
-tensOutput = stringTens[stringTen];
-hundredOutput = stringHundreds[stringHundred];
+  return unitOutput;
 
-return unitOutput;
-
-// 4. I need to change these numbers, into a string
-
+  // 4. I need to change these numbers, into a string
 }
 
-
-
+convertToLetters();
 
 // for (let i = 0; i < numbers.length; i++) {
 //     let location = locations[i];
@@ -47,17 +67,14 @@ return unitOutput;
 //     // }
 //     console.log(location.lat);
 //     console.log(location.lon);
-// } 
-
-
-
+// }
 
 // var nicks = [], // start by creating an empty array
 //     nick;
 // while (true) {
 //     nick = prompt('Enter a name : ');
 //     if(nick) {
-//         nicks.push(nick); 
+//         nicks.push(nick);
 //         // instead of the string from before, push the variable which stores the name
 //         // into the newly created array
 //     } else {
@@ -69,7 +86,7 @@ return unitOutput;
 //     // if there is nothing in the array, display the alert below
 //     alert("there is nothing to display");
 // } else {
-//     // otherwise create a new variable to store the array which has been joined 
+//     // otherwise create a new variable to store the array which has been joined
 //     // with an empty space in between
 //     let str = nicks.join(' ');
 //     // create an alert to show this
@@ -82,6 +99,6 @@ return unitOutput;
 
 // i need to use the modular
 
-// unit 
+// unit
 // ten
-// hundred 
+// hundred
