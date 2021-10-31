@@ -12,7 +12,7 @@ function casino() {
     let msg = `Please choose a number between 1 and 36.`;
     let pickedNumber;
     do {
-      pickedNumber = prompt(msg);
+      pickedNumber = prompt(msg); // Question 1 answer. Because of this prompt.
       pickedNumber = parseInt(pickedNumber);
       console.log(pickedNumber);
       msg = `Your choice is not valid, please choose a number between 1 and 36.`;
